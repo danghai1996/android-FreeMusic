@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_noti_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/exo_controls_pause"
+        android:src="@drawable/ic_pause_black_24dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:padding="16dp"/>
@@ -25,9 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
         android:layout_toRightOf="@id/iv_noti_song"
         android:layout_toLeftOf="@+id/iv_noti_play"
-        android:textColor="@color/colorTextPrimary"/>
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/tv_noti_singer"
@@ -38,7 +40,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_below="@+id/tv_noti_song_name"
-        android:padding="16dp"
         android:textSize="12sp"
-        android:textColor="@color/colorTextSecond"/>
+        android:textColor="#000000"/>
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.nhem.freemusic.R;
 import com.example.nhem.freemusic.database.TopSongModel;
 import com.example.nhem.freemusic.events.OnTopSongEvent;
+import com.example.nhem.freemusic.notification.MusicNotification;
 import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
@@ -78,6 +79,7 @@ public class TopSongAdapter extends RecyclerView.Adapter<TopSongAdapter.TopSongV
                 @Override
                 public void onClick(View view) {
                     EventBus.getDefault().postSticky(new OnTopSongEvent(topSongModel));
+                    MusicNotification.setupNotification(context, topSongModel);
                 }
             });
         }

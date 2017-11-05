@@ -12,6 +12,7 @@ import com.example.nhem.freemusic.database.TopSongModel;
 import com.example.nhem.freemusic.network.GetSearchSongService;
 import com.example.nhem.freemusic.network.RetrofitFactory;
 import com.example.nhem.freemusic.network.json_model.SearchSongJSON;
+import com.example.nhem.freemusic.notification.MusicNotification;
 
 
 import hybridmediaplayer.HybridMediaPlayer;
@@ -69,6 +70,7 @@ public class MusicHandle {
         } else {
             hybridMediaPlayer.play();
         }
+        MusicNotification.updateNotification();
     }
 
     public static void updateRealtime(final SeekBar seekBar,
@@ -86,9 +88,9 @@ public class MusicHandle {
                     seekBar.setProgress(hybridMediaPlayer.getCurrentPosition());
 
                     if (hybridMediaPlayer.isPlaying()) {
-                        floatingActionButton.setImageResource(R.drawable.ic_pause_black_24dp);
+                        floatingActionButton.setImageResource(R.drawable.ic_pause_white_24dp);
                     } else {
-                        floatingActionButton.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                        floatingActionButton.setImageResource(R.drawable.ic_play_arrow_white_24dp);
                     }
                     Utils.rotateImage(imageView, hybridMediaPlayer.isPlaying());
 

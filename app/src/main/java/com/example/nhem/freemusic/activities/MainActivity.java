@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -20,6 +21,7 @@ import com.example.nhem.freemusic.events.OnClickMusicTypeEvent;
 import com.example.nhem.freemusic.events.OnTopSongEvent;
 import com.example.nhem.freemusic.fragment.MainPlayerFragment;
 import com.example.nhem.freemusic.fragment.TopSongFragment;
+import com.example.nhem.freemusic.notification.MusicNotification;
 import com.example.nhem.freemusic.utils.MusicHandle;
 import com.example.nhem.freemusic.utils.Utils;
 import com.squareup.picasso.Picasso;
@@ -136,5 +138,21 @@ public class MainActivity extends AppCompatActivity {
                         new MainPlayerFragment());
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ccccccc");
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d(TAG, "onBackPressed: " + getSupportFragmentManager().getBackStackEntryCount());
+        if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
+            super.onBackPressed();
+        } else {
+            moveTaskToBack(true);
+        }
     }
 }
